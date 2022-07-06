@@ -1,0 +1,98 @@
+<html>
+<script type = "text/javascript">  
+function printFun()  
+{  
+window.print();  
+}  
+  
+</script>  
+<!-- Start the coding for CSS -->  
+<style>  
+/* Create the Outer layout of the Calculator. */  
+.formstyle  
+{  
+width: 400px;  
+height: 90%;  
+margin: 20px auto;  
+border: 3px solid #DEEBF7;  
+border-radius: 5px;  
+padding: 20px;  
+text-align: left;  
+background-color:#DEEBF7;  
+}  
+  
+/* Display top horizontal bar that contain some information. */  
+h1 {  
+    text-align: center;  
+    padding: 23px;  
+    background-color: #DEEBF7;  
+    color: white;  
+    }  
+      
+      
+*{  
+margin: 0;  
+padding: 0;  
+}  
+  
+</style>  
+  
+ 
+<h1>Quelle galvanisation choisir?</h1>
+  
+<div class = "formstyle">  
+  
+<form name = "form1">  
+<fieldset> 
+
+<label><b>pH sans correction</b><label><br>
+<select name="ph sans correction" id="ph sans correction">
+<option value="<6"><6</option>
+<option value="neutre">neutre</option>
+<option value="7">>7</option>
+</select>
+<br><br>
+
+<label><b>Perenité du projet</b><label><br>
+<select name="Perenité du projet" id="Perenité du projet">
+<option value="20-25 ans">20-25 ans</option>
+<option value="30-40 ans">30-40 ans</option>*
+<option value=">40 ans">40 ans</option>
+</select>
+<br><br>
+
+<label><b>HVE</b></label> 
+<br>  
+
+<input type="radio" id="hve" name="galva" value="case 1"><label for="oui">oui</label>
+<input type="radio" id="hve" name="galva" value="case 2"><label for="non">non</label>
+
+
+
+
+ 
+ 
+<center>  
+<label for="email"><b>Email:</b></label><br> 
+ 
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+  
+<input type = "reset"  value = "RAZ"/>  
+<input style = "background-color:#2E75B6;" width = 30px height = 20px type = "button" value = "Imprimer" onclick = "printFun()"/>
+</center>  
+<br> <br>  
+<br>
+<!......zone resultats manque code resultat du script ci apres juste pour la mise en page>  
+<center>  
+<label>Notre suggestion</label>
+<br>   
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+<!......zone resultats> 
+ 
+</fieldset>  
+ 
+</form>  
+</div> 
+</html>

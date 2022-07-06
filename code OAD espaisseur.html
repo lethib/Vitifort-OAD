@@ -1,0 +1,116 @@
+<html>
+<script type = "text/javascript">  
+function printFun()  
+{  
+window.print();  
+}  
+  
+</script>  
+<!-- Start the coding for CSS -->  
+<style>  
+/* Create the Outer layout of the Calculator. */  
+.formstyle  
+{  
+width: 400px;  
+height: 90%;  
+margin: 20px auto;  
+border: 3px solid #DEEBF7;  
+border-radius: 5px;  
+padding: 20px;  
+text-align: left;  
+background-color:#DEEBF7;  
+}  
+  
+/* Display top horizontal bar that contain some information. */  
+h1 {  
+    text-align: center;  
+    padding: 23px;  
+    background-color: #DEEBF7;  
+    color: white;  
+    }  
+      
+      
+*{  
+margin: 0;  
+padding: 0;  
+}  
+  
+</style>  
+  
+ 
+<h1>Choix de l'epaisseur du piquet </h1>
+  
+<div class = "formstyle">  
+  
+<form name = "form1">  
+<fieldset> 
+
+
+<label><b>Type de conduite</b></label> 
+<br>  
+
+<input type="radio" id="vigne basse" name="conduite" value="case 1"><label for="vigne basse">vigne basse</label>
+<input type="radio" id="vigne basse" name="conduite" value="case 2"><label for="vigne intermediaire">vigne intermediaire</label>
+<input type="radio" id="vigne basse" conduite" value="case 3"><label for="vigne haute">vigne haute</label>
+<BR>
+<input type="radio" id="vigne basse" name="conduite" value="case 4"><label for="TRP">TRP</label>
+<input type="radio" id="vigne basse" name="conduite" value="case 5"><label for="lyre">lyre</label>
+
+
+<br><br> 
+<label><b>Rendements en Kg/Ha</b><label><br>
+<select name="KG/HA" id="KG/HA">
+<option value="<6000"><6000</option>
+<option value="6000-12000">6000-12000</option>
+<option value="12000-15000">12000-15000</option>
+<option value="15000-20000">15000-20000</option>
+<option value=">20000">>20000</option>
+</select>
+<br><br>
+
+<label><b>Hauteur max vegetation</b><label><br>
+<select name="Hauteur max vegetation" id="Hauteur max vegetation">
+<option value="1">1</option>
+<option value="1,3">1,3</option>
+<option value="1,5">1,5</option>
+<option value=">2">2</option>
+</select>
+<br><br> 
+
+
+<label><b>Surface foliaire par plant</b><label><br>
+<select name="Surface foliaire par plant" id="Surface foliaire par plant">
+<option value="<1">>1</option>
+<option value="1">1</option>
+<option value=">1">>1</option>
+<option value=">1,2">>1,2</option>
+<option value=">1,5">>1,5</option>
+</select>
+<br><br> 
+
+ 
+ 
+<center>  
+<label for="email"><b>Email:</b></label><br> 
+ 
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+  
+<input type = "reset"  value = "RAZ"/>  
+<input style = "background-color:#2E75B6;" width = 30px height = 20px type = "button" value = "Imprimer" onclick = "printFun()"/>
+</center>  
+<br> <br>  
+<br>
+<!......zone resultats manque code resultat du script ci apres juste pour la mise en page>  
+<center>  
+<label>Notre suggestion</label>
+<br>   
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+<!......zone resultats> 
+ 
+</fieldset>  
+ 
+</form>  
+</div> 
+</html>

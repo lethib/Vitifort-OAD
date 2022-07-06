@@ -1,0 +1,140 @@
+<html>
+
+<!-- Start the coding for CSS -->  
+<style>  
+/* Create the Outer layout of the Calculator. */  
+.formstyle  
+{  
+width: 400px;  
+height: 90%;  
+margin: 20px auto;  
+border: 3px solid #DEEBF7;  
+border-radius: 5px;  
+padding: 20px;  
+text-align: left;  
+background-color:#DEEBF7;  
+}  
+  
+/* Display top horizontal bar that contain some information. */  
+h1 {  
+    text-align: center;  
+    padding: 23px;  
+    background-color: #DEEBF7;  
+    color: white;  
+    }  
+      
+      
+*{  
+margin: 0;  
+padding: 0;  
+}  
+  
+</style>  
+  
+<body>
+<h1>Calculateur nombre de piquet par hectare</h1>
+  
+<div class = "formstyle">  
+  
+<form name = "form1" id="form-piquet">  
+<fieldset> 
+
+<label><b>Type de conduite</b></label> 
+<br>  
+
+<input type="radio" id="vigne basse" name="conduite" value="case 1"><label for="vigne basse">vigne basse</label>
+<input type="radio" id="vigne basse" name="conduite" value="case 2"><label for="vigne intermediaire">vigne intermediaire</label>
+<input type="radio" id="vigne basse" name="conduite" value="case 3"><label for="vigne haute">vigne haute</label>
+<BR>
+<input type="radio" id="vigne basse" name="conduite" value="case 4"><label for="TRP">TRP</label>
+<input type="radio" id="vigne basse" name="conduite" value="case 5"><label for="lyre">lyre</label>
+
+
+<br><br>  
+ 
+<label><b>Distance inter rang en M  au besoin utilisez le point</b><label><br>
+<input type="text" name="interrang" size="4" value="1.5">
+<br><br>    
+ 
+<label><b>Taille de la parcelle en M2 au besoin utilisez le point</b><label><br> 
+ <input type="text" name="surface" size="4" value="3.25">
+<br><br>     
+
+<label><b>% d'occupation</b><label><br> 
+<input type="text" name="occupation" size="2" value="90">%
+<br><br> 
+<label><b>Nombre de plants</b><label><br>
+<input type="text" name="plants" size="4" value="5000">
+<br><br> 
+<label><b>Combien de Plant entre deux piquets</b><label><br>
+<input type="number" name="ecartement" size="1" value="5">
+<br><br><br>   
+  
+ 
+ 
+<center>  
+<label for="email"><b>Email:</b></label><br> 
+ 
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+  
+<input type = "reset"  value = "RAZ"/>  
+<input style = "background-color:#2E75B6;" width = 30px height = 20px type = "button" value = "Imprimer" onclick = "printFun()"/>
+<input type="button" value="Voir Calcul" onclick="printCalc('print-calc')">
+</center>  
+<br> <br>  
+<br>
+<!......zone resultats manque code resultat du script ci apres juste pour la mise en page>  
+<center>  
+<label>Notre suggestion</label>
+<br>
+<div id="print-calc"></div>   
+<input type = "email" id = "email" name = "email" size ="30" required="required"> </br>  
+<br>  
+<!......zone resultats> 
+ 
+</fieldset>  
+ 
+</form>  
+</div> 
+<script type = "text/javascript">
+
+    const infoCalc = ['interrang','surface','occupation','plants','ecartement']
+ 
+    let getFormElement = () => {
+        const infoArray = []
+        const form = document.getElementById('form-piquet')
+        console.log(form)
+        Array.from(form.elements).forEach(element => {
+            console.log(element.name)
+            for (const info of infoCalc) {
+                if (element.name === info) {
+                    infoArray.push(parseFloat(element.value))
+                }
+            }
+        })
+        return infoArray
+    }
+
+    let calc_nb_plant = (list_info) => {
+        if (String(list_info[3]) == 'NaN') {
+            return (list_info[1]/(list_info[4]-list_info[0]))*list_info[2]
+        }
+        else {
+            return list_info[3] 
+        }
+    }
+
+    function printCalc(id_div) {
+        document.getElementById(id_div).innerHTML = 'Il vous faut ' + String(calc_nb_plant(getFormElement())) + ' piquets.'
+    }
+    
+    function printFun()  
+    {  
+    window.print();  
+    }  
+      
+    </script>  
+
+</body>
+</html>
