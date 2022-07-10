@@ -43,11 +43,11 @@ padding: 0;
 <br>  
 
 <input type="radio" id="vigne basse" name="conduite" value="case 1"><label for="vigne basse">vigne basse</label>
-<input type="radio" id="vigne basse" name="conduite" value="case 2"><label for="vigne intermediaire">vigne intermediaire</label>
-<input type="radio" id="vigne basse" name="conduite" value="case 3"><label for="vigne haute">vigne haute</label>
+<input type="radio" id="vigne intermediaire" name="conduite" value="case 2"><label for="vigne intermediaire">vigne intermediaire</label>
+<input type="radio" id="vigne haute" name="conduite" value="case 3"><label for="vigne haute">vigne haute</label>
 <BR>
-<input type="radio" id="vigne basse" name="conduite" value="case 4"><label for="TRP">TRP</label>
-<input type="radio" id="vigne basse" name="conduite" value="case 5"><label for="lyre">lyre</label>
+<input type="radio" id="TRP" name="conduite" value="case 4"><label for="TRP">TRP</label>
+<input type="radio" id="lyre" name="conduite" value="case 5"><label for="lyre">lyre</label>
 
 
 <br><br>  
@@ -68,6 +68,9 @@ padding: 0;
 <br><br> 
 <label><b>Combien de Plant entre deux piquets</b><label><br>
 <input type="number" name="ecartement" size="1" value="5">
+<br><br> 
+<label><b>Nombre de rangs dans la parcelle</b><label><br>
+<input type="number" name="nb-rang" size="1" value="40">
 <br><br><br>   
   
  
@@ -99,34 +102,54 @@ padding: 0;
 </div> 
 <script type = "text/javascript">
 
-    const infoCalc = ['interrang','surface','occupation','plants','ecartement']
+    const infoCalc = ['interrang','surface','occupation','plants','ecartement','nb-rang']
  
     let getFormElement = () => {
         const infoArray = []
         const form = document.getElementById('form-piquet')
-        console.log(form)
         Array.from(form.elements).forEach(element => {
-            console.log(element.name)
+            // console.log(element.name)
             for (const info of infoCalc) {
                 if (element.name === info) {
                     infoArray.push(parseFloat(element.value))
                 }
             }
         })
+
         return infoArray
     }
 
-    let calc_nb_plant = (list_info) => {
+    const valConduite = () => {
+        if (document.getElementById('vigne basse').checked) {
+            return 0.8
+        } else if (document.getElementById('vigne intermediaire').checked) {
+            return 0.9
+        } else if (document.getElementById('vigne haute').checked) {
+            return 1.0
+        } else if (document.getElementById('TRP').checked) {
+            return 1.1
+        } else {
+            return 1.2
+        }
+    }
+
+    let calc_nb_plant = (list_info, dist_inter_plant) => {
         if (String(list_info[3]) == 'NaN') {
-            return (list_info[1]/(list_info[4]-list_info[0]))*list_info[2]
+            return (list_info[1]/list_info[0]/dist_inter_plant)*list_info[2]/100
         }
         else {
             return list_info[3] 
         }
     }
 
+    let calc_nb_piquet = (nb_plant,list_info) => {
+        return parseInt(nb_plant/list_info[4]-list_info[5])
+    }
+
     function printCalc(id_div) {
-        document.getElementById(id_div).innerHTML = 'Il vous faut ' + String(calc_nb_plant(getFormElement())) + ' piquets.'
+        // console.log(calc_nb_plant(getFormElement(), valConduite()))
+        nb_plant = calc_nb_plant(getFormElement(), valConduite())
+        document.getElementById(id_div).innerHTML = 'Il vous faut ' + String(nb_plant) + ' plants et ' + String(calc_nb_piquet(nb_plant,getFormElement())) + ' piquets.'
     }
     
     function printFun()  
