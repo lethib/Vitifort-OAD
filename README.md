@@ -2,4 +2,8 @@
 
 Le script de calcul est inclu dans chaque fichier `HTML` entre les balises `</div>`et `</body>`. 
 
-> Pour l'instant, seulement le code pour `code OAD Nbr piquets.html` est réalisé. 
+- Code pour l'OAD du nombre de piquet terminé. 
+
+> Reste à faire l'OAD pour l'épaisseur
+
+**Toujours en attente des autres OAD**
